@@ -25,6 +25,7 @@
 		BA02D94127DE30F2008C0DA4 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		BA02D94327DE3229008C0DA4 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		BA02D94527DE3B04008C0DA4 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		BA1D30B227DF760D00D3D0B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		BA02D93027DE2A45008C0DA4 /* weatherApi */ = {
 			isa = PBXGroup;
 			children = (
+				BA1D30B227DF760D00D3D0B0 /* Info.plist */,
 				BA02D94327DE3229008C0DA4 /* Weather.swift */,
 				BA02D94127DE30F2008C0DA4 /* WeatherService.swift */,
 				BA02D94527DE3B04008C0DA4 /* WeatherViewModel.swift */,
@@ -284,7 +286,8 @@
 				DEVELOPMENT_TEAM = J7MCG624CD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location, please";
+				INFOPLIST_FILE = weatherApi/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location please";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -314,7 +317,8 @@
 				DEVELOPMENT_TEAM = J7MCG624CD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location, please";
+				INFOPLIST_FILE = weatherApi/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Allow location please";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

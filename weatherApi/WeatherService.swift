@@ -58,10 +58,12 @@ public final class WeatherService : NSObject {
     private let locationManager = CLLocationManager()
     private let key = "b245ceaa524b02630049965b98a73d70"
     private var completionHandler : ((Weather) -> Void)?
-    
+    private var coords : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     public override init ( ){
         super.init()
         locationManager.delegate = self
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.showsBackgroundLocationIndicator = true
     }
     
     
@@ -69,6 +71,7 @@ public final class WeatherService : NSObject {
         self.completionHandler = completionHandler
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        makeDataRequest(for: coords)
     }
     
     //https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
@@ -88,8 +91,10 @@ public final class WeatherService : NSObject {
                 return
             }
             if let response = try? JSONDecoder().decode(apiRespons.self, from : data){
-                
+                print("fetch")
                 self.completionHandler?(Weather(responses: response))
+                if let cash = try? JSONEncoder().encode(Weather(responses: response)){
+                    UserDefaults.standard.set(cash, forKey: "cash")}
             }
             else {
                 print("cant decode json")
@@ -106,7 +111,8 @@ extension WeatherService : CLLocationManagerDelegate{
         guard let location = locations.first else {
             return
         }
-        makeDataRequest(for: location.coordinate)
+        coords = location.coordinate
+        
     }
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
